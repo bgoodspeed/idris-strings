@@ -1,4 +1,4 @@
-module Words
+module SignedConsCellWord 
 
 %default total
 
@@ -229,7 +229,7 @@ Words.wordConcatAndCollapseIsAssociativeStepCase = proof
 
 ---------- Proofs ----------
 
-Words.wordConcatEmptyRightNeutralStepCase = proof
+SignedConsCellWord.wordConcatEmptyRightNeutralStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial

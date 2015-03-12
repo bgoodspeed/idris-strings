@@ -1,4 +1,4 @@
-module WordApp
+module ConsCellWord 
 
 import Prelude.Functor
 
@@ -184,49 +184,49 @@ instance VerifiedMonad Word where
 
 ---------- Proofs ----------
 
-WordApp.applicativeIdentityProofStepCase = proof
+ConsCellWord.applicativeIdentityProofStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
-WordApp.applicativeMapProofStepCase = proof
+ConsCellWord.applicativeMapProofStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
-WordApp.functorCompositionProofStepCase = proof
+ConsCellWord.functorCompositionProofStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
-WordApp.functorIdentityProofStepCase = proof
+ConsCellWord.functorIdentityProofStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
 
-WordApp.wordConcatIsInvInjective_rhs = proof
+ConsCellWord.wordConcatIsInvInjective_rhs = proof
   intros
   rewrite pf
   trivial
 
 
-WordApp.wordConcatNeutralIsNeutralRStepCase = proof
+ConsCellWord.wordConcatNeutralIsNeutralRStepCase = proof
   intros
   trivial
 
 
-WordApp.wordConcatNeutralIsNeutralLStepCase = proof
+ConsCellWord.wordConcatNeutralIsNeutralLStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
-WordApp.wordConcatIsAssociativeStepCase = proof
+ConsCellWord.wordConcatIsAssociativeStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
