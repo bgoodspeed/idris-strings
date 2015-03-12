@@ -1,4 +1,5 @@
-module UnsignedVectorWords
+module VectorWord
+
 
 import Data.Vect
 %default total

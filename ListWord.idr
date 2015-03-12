@@ -1,4 +1,4 @@
-module UnsignedWords
+module ListWord 
 
 %default total
 
@@ -15,7 +15,7 @@ listAppendIsAssociative (x :: xs) c r = let inductiveHypothesis = listAppendIsAs
                                             ?listAppendIsAssociativeStepCase
 
 -- list a already gives us Eq, Semigroup, Monoid
-instance VerifiedSemigroup Str where
+instance [verifiedSemigroupWord] VerifiedSemigroup Str where
   semigroupOpIsAssociative = listAppendIsAssociative 
 
 
@@ -29,7 +29,7 @@ listAppendNeutralIsNeutralR [] = Refl
 listAppendNeutralIsNeutralR (x :: xs) = let inductiveHypothesis = listAppendNeutralIsNeutralR xs in
                                             ?listAppendNeutralIsNeutralRStepCase
 
-instance VerifiedMonoid Str where
+instance [verifiedMonoidWord] VerifiedMonoid Str where
   monoidNeutralIsNeutralL = listAppendNeutralIsNeutralL
   monoidNeutralIsNeutralR = listAppendNeutralIsNeutralR
 
@@ -60,24 +60,24 @@ concatIsInjective c (a::s11) (b::s21) pf = ?concatIsInjectivePf
 
 ---------- Proofs ----------
 
-UnsignedWords.concatIsInvInjectivePf = proof
+ListWord.concatIsInvInjectivePf = proof
   intros
   rewrite pf
   trivial
 
 
-UnsignedWords.listAppendNeutralIsNeutralRStepCase = proof
+ListWord.listAppendNeutralIsNeutralRStepCase = proof
   intros
   trivial
 
 
-UnsignedWords.listAppendNeutralIsNeutralLStepCase = proof
+ListWord.listAppendNeutralIsNeutralLStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
 
 
-UnsignedWords.listAppendIsAssociativeStepCase = proof
+ListWord.listAppendIsAssociativeStepCase = proof
   intros
   rewrite inductiveHypothesis 
   trivial
