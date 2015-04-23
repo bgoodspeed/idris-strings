@@ -141,6 +141,8 @@ nthConjugateOf : Nat -> Word t -> Word t
 nthConjugateOf Z x = x 
 nthConjugateOf (S k) x = nthConjugateOf k (cyclicShiftWord x) 
 
+
+
 cyclicShiftIsConjugate : (Eq t) => (w1 : Word t) -> (w2 : Word t) -> { auto ok: cyclicShiftWord w1 = w2 } -> isConjugateOfT w1 w2
 cyclicShiftIsConjugate w1 w2 = ?cyclicShiftIsConjugate_pf
 
@@ -153,10 +155,11 @@ data Conjugate : (Eq t) => Word t -> Word t -> Nat -> Type where
 
 
 --splitConjugate : (Conjugate w x n) -> ((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
-splitConjugate : (Eq t) => (Conjugate w x n) -> {u : Word t} -> {v : Word t} -> ((Word t, Word t), ((w = u ## v), (x = v ## u)))
+splitConjugate : (Eq t) => (Conjugate w x n) -> {u : Word t} -> {v : Word t} -> ((w = u ## v), (x = v ## u))
 splitConjugate (MkConjugate w x n ) = ?splitConjugateProof
                  
                  --((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
+nthConj : (Eq t) => (n : Nat) -> (w : Word) -> Bool -- should be able to do something with the prefix and hten reconstructing the new word?
 
 
 -- This is what it would look like with primitives, can't use any of the properties usefully
@@ -164,7 +167,7 @@ splitConjugate (MkConjugate w x n ) = ?splitConjugateProof
 --theorem2_4_2 w x isConj isPow = ?theorem2_4_2_rhs
 -- This is what it looks like if you use too many types
 -- theorem2_4_2DT : (w : Word) -> (x : Word) -> (Conjugate w x n) -> (Power w pw kw) -> (Power x px kx)  
-theorem2_4_2DT : (Eq t) => (w : Word t) -> (x : Word t) -> (Conjugate w x n) -> (Power w pw kw) -> wordMult px kx = x
-theorem2_4_2DT w x (MkConjugate w x n) (MkPower w pw kw) = ?thm242Proof
+--theorem2_4_2DT : (Eq t) => (w : Word t) -> (x : Word t) -> (Conjugate w x n) -> { pw : Word t } ->  (Power w pw kw) -> {px : Word t}  -> wordMult px kx = x
+-- theorem2_4_2DT w x x1 x2 = ?theorem2_4_2DT_rhs_1
 
-
+--theorem2_4_2DT w x (MkConjugate w x n) (MkPower w pw kw) = ?thm242Proof

@@ -139,7 +139,7 @@ data Conjugate : Word -> Word -> Nat -> Type where
 
 
 --splitConjugate : (Conjugate w x n) -> ((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
-splitConjugate : (Conjugate w x n) -> {u : Word} -> {v : Word} -> ((Word, Word), ((w = u ++ v), (x = v ++ u)))
+splitConjugate : (Conjugate w x n) -> {u : Word} -> {v : Word} -> ((Word, Word) , ((w = u ++ v), (x = v ++ u)))
 splitConjugate (MkConjugate w x n ) = ?splitConjugateProof
                  
                  --((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
