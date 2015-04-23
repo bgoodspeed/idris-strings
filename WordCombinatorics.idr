@@ -135,7 +135,7 @@ data Conjugate : Word -> Word -> Nat -> Type where
 
 --splitConjugate : (Conjugate w x n) -> ((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
 splitConjugate : (Conjugate w x n) -> {u : Word} -> {v : Word} -> ((Word, Word), ((w = u ++ v), (x = v ++ u)))
-splitConjugate (MkConjugate w x n ) = ?asdf  
+splitConjugate (MkConjugate w x n ) = ?splitConjugateProof
                  
                  --((u : Word, v : Word) ** ((w = u ++ v), (x = v ++ u)))
 
@@ -146,6 +146,6 @@ splitConjugate (MkConjugate w x n ) = ?asdf
 -- This is what it looks like if you use too many types
 -- theorem2_4_2DT : (w : Word) -> (x : Word) -> (Conjugate w x n) -> (Power w pw kw) -> (Power x px kx)  
 theorem2_4_2DT : (w : Word) -> (x : Word) -> (Conjugate w x n) -> (Power w pw kw) -> wordMult px kx = x
-theorem2_4_2DT w x (MkConjugate w x n) (MkPower w pw kw) = ?foo 
+theorem2_4_2DT w x (MkConjugate w x n) (MkPower w pw kw) = ?thm242Proof
 
 
