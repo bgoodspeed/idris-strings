@@ -1,6 +1,7 @@
 module ConsCellWord 
 
 import Prelude.Functor
+import CharDec
 
 %default total
 -- Data types
@@ -88,6 +89,11 @@ wordConcatIsAssociative (x # y) c r = let inductiveHypothesis = wordConcatIsAsso
 instance VerifiedSemigroup (Word t) where
   semigroupOpIsAssociative = wordConcatIsAssociative
 
+
+wcN : (w : Word t) -> (w ## Empty) = w
+wcN Empty = Refl
+wcN (x # y) = let iH = wcN y in
+                  ?theRest1
 
 
 wordConcatNeutralIsNeutralL : (w : (Word t)) -> (w ## Empty) = w
@@ -184,6 +190,18 @@ instance VerifiedMonad Word where
 
 ---------- Proofs ----------
 
+ConsCellWord.theRest1 = proof
+  intros
+  rewrite iH
+  trivial
+
+
+ConsCellWord.wordConcatNeutralIsNeutralLStepCase = proof
+  intros
+  rewrite inductiveHypothesis 
+  trivial
+
+
 ConsCellWord.applicativeIdentityProofStepCase = proof
   intros
   rewrite inductiveHypothesis 
@@ -219,12 +237,12 @@ ConsCellWord.wordConcatNeutralIsNeutralRStepCase = proof
   intros
   trivial
 
-
-ConsCellWord.wordConcatNeutralIsNeutralLStepCase = proof
-  intros
-  rewrite inductiveHypothesis 
-  trivial
-
+{-
+--ConsCellWord.wordConcatNeutralIsNeutralLStepCase = proof
+--  intros
+--  rewrite inductiveHypothesis 
+--  trivial
+-}
 
 ConsCellWord.wordConcatIsAssociativeStepCase = proof
   intros
