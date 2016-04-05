@@ -107,6 +107,10 @@ wordConcatNeutralIsNeutralR (x # y) = let inductiveHypothesis = wordConcatNeutra
                                           ?wordConcatNeutralIsNeutralRStepCase 
 
 
+
+
+
+
 instance VerifiedMonoid (Word t) where
   monoidNeutralIsNeutralL = wordConcatNeutralIsNeutralL
   monoidNeutralIsNeutralR = wordConcatNeutralIsNeutralR
